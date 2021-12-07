@@ -1,4 +1,4 @@
-type PetType = { type: 'dog' | 'cat' | 'fish' };
+type PetType = 'dog' | 'cat' | 'fish';
 
 type Pet = {
     type: PetType,
@@ -141,6 +141,8 @@ export const Pet = {
     },
 
     getFromName: (name: string): Pet[] => {
+        console.log(data)
         return data.filter(item => item.name.toLowerCase().indexOf(name.toLowerCase()) > -1);
+        
     }
 }
