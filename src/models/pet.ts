@@ -1,4 +1,4 @@
-type PetType = 'dog' | 'cat' | 'fish';
+export type PetType = 'dog' | 'cat' | 'fish';
 
 type Pet = {
     type: PetType,
@@ -6,7 +6,6 @@ type Pet = {
     name: string,
     color: string,
     sex: 'Masculino' | 'Feminino'
-
 }
 
 const data: Pet[] = [
@@ -141,8 +140,14 @@ export const Pet = {
     },
 
     getFromName: (name: string): Pet[] => {
-        console.log(data)
-        return data.filter(item => item.name.toLowerCase().indexOf(name.toLowerCase()) > -1);
-        
+        return data.filter(item => item.name.toLowerCase().indexOf(name.toLowerCase()) > -1);   
+    },
+
+    getFromNameOrType: (searchInput: string): Pet[] => {
+        return data.filter(item => 
+            item.name.toLowerCase().indexOf(searchInput.toLowerCase()) > -1 ||
+            item.type.toLowerCase().indexOf(searchInput.toLowerCase()) > -1 ||
+            item.color.toLowerCase().indexOf(searchInput.toLowerCase()) > -1 ||
+            item.sex.toLowerCase().indexOf(searchInput.toLowerCase()) > -1);
     }
 }

@@ -14,8 +14,10 @@
             <div class="item--genre">Gênero: {{ sex }}</div>
         </div>
     {{/list}}
-
-    
 </div>
-
+{{^list}}
+<div class="container no-list">
+<h2>Não foram encontrados Pets com essas características.</h2>
+</div>
+{{/list}}
 {{>partials/footer}}
